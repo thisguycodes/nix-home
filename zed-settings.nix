@@ -51,9 +51,6 @@
         ".github/workflows/*.yaml"
       ];
     };
-    features = {
-      edit_prediction_provider = "zed";
-    };
     format_on_save = "on";
     vim_mode = true;
     journal = {
@@ -84,37 +81,35 @@
       };
     };
     agent = {
-      always_allow_tool_actions = true;
       default_model = {
         provider = "zed";
         model = "claude-sonnet-4-5-thinking";
       };
     };
     context_servers = {
-      # Github = {
-      #   source = "custom";
-      #   command = "podman";
-      #   args = [
-      #     "run"
-      #     "-i"
-      #     "--rm"
-      #     "-e"
-      #     "GITHUB_PERSONAL_ACCESS_TOKEN"
-      #     "ghcr.io/github/github-mcp-server"
-      #   ];
-      #   env = {
-      #     GITHUB_PERSONAL_ACCESS_TOKEN = "NOOP";
-      #   };
-      # };
+      mcp-server-github = {
+        enabled = true;
+        settings = {
+          github_personal_access_token = "REPLACEME";
+        };
+        env = { };
+      };
+      gopls = {
+        enabled = true;
+        command = "gopls";
+        args = [
+          "mcp"
+        ];
+        env = { };
+      };
       "Cloudflare Docs" = {
-        source = "custom";
         command = "npx";
         args = [
           "-y"
           "mcp-remote"
           "https://docs.mcp.cloudflare.com/sse"
         ];
-        env = null;
+        env = { };
       };
     };
   };
