@@ -47,6 +47,7 @@
     pkgs.nerd-fonts.jetbrains-mono
     #pkgs.ghostty
     #(pkgs.callPackage ./sigtop.nix {})
+    pkgs.devcontainer
     pkgs.ansible
     pkgs.fd
     pkgs.uv

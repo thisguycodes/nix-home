@@ -45,6 +45,7 @@
       # "ollama"
       "logcli"
       "yoanbernabeu/tap/grepai"
+      "depot/tap/depot"
     ]
     ++ (
       if builtins.elem "work" roles then
@@ -57,6 +58,7 @@
       "brewforge/extras"
       "anomalyco/tap"
       "yoanbernabeu/tap"
+      "depot/tap"
     ]
     ++ (if builtins.elem "work" roles then [ "withgraphite/tap" ] else [ ]);
     casks = [
