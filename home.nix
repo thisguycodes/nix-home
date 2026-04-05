@@ -286,7 +286,7 @@
 
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
+    # enableZshIntegration = true;
     attachExistingSession = true;
     exitShellOnExit = true;
   };
@@ -306,6 +306,9 @@
     initContent =
       let
         entries = {
+          clicolor = lib.mkOrder 1501 ''
+            export CLICOLOR=1
+          '';
           opts = lib.mkOrder 499 ''
             setopt autopushd
           '';
