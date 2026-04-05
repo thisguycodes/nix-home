@@ -198,6 +198,7 @@
     settings = {
       alias = {
         s = "switch";
+        l = "log --graph --pretty='commit: %C(bold red)%h%Creset author: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd%n%C(cyan)%s%n%Creset'";
         fc = "!f(){ git diff --name-only --pretty='' $1..HEAD | sort | uniq; }; f";
         cam = "commit -am";
         cm = "commit -m";
