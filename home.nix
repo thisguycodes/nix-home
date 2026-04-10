@@ -266,15 +266,6 @@
         controlPersist = "10m";
         hashKnownHosts = true;
       };
-      "bastion-pentest25.babylist-prod.com" = {
-        identityFile = "~/.ssh/aws-codecommit";
-      };
-      "bastion.babylist-stage.com" = {
-        identityFile = "~/.ssh/aws-codecommit";
-      };
-      "bastion.babylist-prod.com" = {
-        identityFile = "~/.ssh/aws-codecommit";
-      };
     };
   };
 
