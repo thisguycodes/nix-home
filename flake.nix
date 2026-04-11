@@ -6,6 +6,9 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    mulsash.url = "github:thisguycodes/mulsash";
+    mulsash.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -16,6 +19,7 @@
       nix-darwin,
       home-manager,
       nixpkgs,
+      mulsash,
       ...
     }:
     let
@@ -34,16 +38,22 @@
           modules = [
             ./darwin.nix
             home-manager.darwinModules.home-manager
-            {
-              # TODO: better understand this option
-              # https://discourse.nixos.org/t/home-manager-useuserpackages-useglobalpkgs-settings/34506/4
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.thisguy = import ./home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit roles taildomain tailconfig;
-              };
-            }
+            (
+              { pkgs, ... }:
+              {
+                # TODO: better understand this option
+                # https://discourse.nixos.org/t/home-manager-useuserpackages-useglobalpkgs-settings/34506/4
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.thisguy = import ./home.nix;
+                home-manager.extraSpecialArgs = {
+                  inherit roles taildomain tailconfig;
+                  myPkgs = {
+                    mulsash = mulsash.packages.${pkgs.stdenv.hostPlatform.system}.default;
+                  };
+                };
+              }
+            )
             {
               nixpkgs.config.allowUnfreePredicate =
                 pkg:
