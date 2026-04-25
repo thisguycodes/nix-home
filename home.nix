@@ -216,7 +216,8 @@
       user = {
         name = "Travis Johnson";
         email = "travis@thisguy.codes";
-        signingkey = "F7B1F29963D9D8B261A707D201E95421D282D509";
+        # signingkey = "F7B1F29963D9D8B261A707D201E95421D282D509";
+        signingkey = "/Users/thisguy/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/b0b6f5682484483cfbf5ba952f30d242.pub";
       };
       diff.external = "difft";
       difftool."difftastic" = {
@@ -235,6 +236,7 @@
         autoSetupRemote = true;
       };
       commit.gpgsign = true;
+      gpg.format = "ssh";
       # TODO: only disable this on specific machine
       # log.showSignature = true;
     };
