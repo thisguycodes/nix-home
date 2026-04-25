@@ -298,6 +298,9 @@
       "completion"
     ];
     #initExtra = "eval \"\$(${pkgs.zellij}/bin/zellij setup --generate-completion zsh)\"";
+    envExtra = ''
+      export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    '';
     initContent =
       let
         entries = {
