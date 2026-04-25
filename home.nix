@@ -259,8 +259,8 @@
     enable = true;
     enableDefaultConfig = false;
     extraConfig = lib.strings.concatStringsSep "\n" [
-      # "IdentityAgent %d/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-      "IdentityAgent \"%d/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\""
+      "IdentityAgent %d/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+      # "IdentityAgent \"%d/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\""
     ];
     matchBlocks = {
       "*" = {
