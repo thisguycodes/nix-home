@@ -83,5 +83,7 @@
       };
       darwinConfigurations.ThisBase = setup {
       };
+      darwinConfigurations.ThisAir = setup {
+      };
     };
 }

@@ -217,7 +217,7 @@
         name = "Travis Johnson";
         email = "travis@thisguy.codes";
         # signingkey = "F7B1F29963D9D8B261A707D201E95421D282D509";
-        signingkey = "/Users/thisguy/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/b0b6f5682484483cfbf5ba952f30d242.pub";
+        signingkey = "/Users/thisguy/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/61578cbdf7cccdc289c6decd08b4fb19.pub";
       };
       diff.external = "difft";
       difftool."difftastic" = {
@@ -259,8 +259,8 @@
     enable = true;
     enableDefaultConfig = false;
     extraConfig = lib.strings.concatStringsSep "\n" [
-      "IdentityAgent %d/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-      # "IdentityAgent \"%d/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\""
+      # "IdentityAgent %d/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+      "IdentityAgent \"%d/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\""
     ];
     matchBlocks = {
       "*" = {
