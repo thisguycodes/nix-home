@@ -172,7 +172,7 @@
   };
 
   programs.zed-editor = import ./zed-settings.nix {
-    enable = true;
+    enable = false;
   };
 
   programs.mise = {
